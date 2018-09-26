@@ -9,12 +9,14 @@ const { Meta } = Card;
 
 class LoginPage extends Component {
   handleAuthedUser = (id) => {
+    const { from } = this.props.location.state || {from: {pathname: "/home"}}
     this.props.dispatch(setAuthedUser(id))
-    this.props.history.push("/home")
+    this.props.history.push(from)
   }
 
   render() {
-    const { userIds, users, authedUser } = this.props
+    const { userIds, users } = this.props
+
     return (
       <div className="login-page">
         <h1 className="login-title">Would you rather be logged in as</h1>
@@ -39,11 +41,10 @@ class LoginPage extends Component {
   }
 }
 
-function mapStateToProps({ users, authedUser }) {
+function mapStateToProps({ users }) {
   return {
     userIds: Object.keys(users),
-    users,
-    authedUser
+    users
   }
 }
 

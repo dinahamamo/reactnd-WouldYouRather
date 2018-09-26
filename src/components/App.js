@@ -5,21 +5,32 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleGetUsers } from '../actions/users'
 // Components
 import LoginPage from './LoginPage'
+import HomePage from './HomePage'
+import PrivateRoute from './PrivateRoute'
+
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleGetUsers())
   }
   render() {
+    const { authedUser } = this.props
     return (
       <Router>
-        <div>
+        <Fragment>
           <Route path="/" exact component={LoginPage} />
-        </div>
+          <PrivateRoute isAuthenticated={authedUser !== null} path="/home" component={HomePage} />
+        </Fragment>
       </Router>
 
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App);
