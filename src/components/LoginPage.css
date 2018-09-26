@@ -1,0 +1,31 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.cards-container {
+  display: flex;
+  padding: 0;
+  margin-top: 1.5rem;
+
+}
+
+.ant-card-meta-title {
+  text-align: center;
+}
+
+.ant-card-cover img {
+  height: 13rem;
+}
+
+.ant-card-hoverable:hover {
+  border: 3px solid #cb3b8e !important;
+}
