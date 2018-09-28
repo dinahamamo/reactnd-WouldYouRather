@@ -1,5 +1,3 @@
-import { getAllUsers } from '../utils/api'
-
 export const GET_USERS = 'GET_USERS'
 
 export function getUsers(users) {
@@ -9,12 +7,12 @@ export function getUsers(users) {
   }
 }
 
-export function handleGetUsers() {
-  return (dispatch) => {
-    return getAllUsers()
-      .then(({users}) => {
-        dispatch(getUsers(users))
-      })
-  }
-}
+// export function handleGetUsers() {
+//   return (dispatch) => {
+//     return getAllUsers()
+//       .then(({users}) => {
+//         dispatch(getUsers(users))
+//       })
+//   }
+// }
 

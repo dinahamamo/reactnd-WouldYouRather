@@ -9,7 +9,7 @@ const { Meta } = Card;
 
 class LoginPage extends Component {
   handleAuthedUser = (id) => {
-    const { from } = this.props.location.state || {from: {pathname: "/home"}}
+    const { from } = this.props.location.state || {from: {pathname: "/questions"}}
     this.props.dispatch(setAuthedUser(id))
     this.props.history.push(from)
   }
@@ -25,7 +25,7 @@ class LoginPage extends Component {
           <li key={user} onClick={() => this.handleAuthedUser(user)}>
             <Card
               hoverable
-              style={{ width: 200 }}
+              style={{ width: 250 }}
               cover={<img alt="example" src={users[user].avatarURL} />}
               >
               <Meta

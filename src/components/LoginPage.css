@@ -23,9 +23,10 @@
 }
 
 .ant-card-cover img {
-  height: 13rem;
+  height: 15rem;
 }
 
 .ant-card-hoverable:hover {
-  border: 3px solid #cb3b8e !important;
+  border: 3px solid #f95480!important;
+  transition: border 0.215s ease-in-out;
 }

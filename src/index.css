@@ -5,7 +5,8 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 10px;
-  background-color: #071139;
+  /* background-color: #071139; */
+  background-color: #171717;
   color: #fff;
   font-family: "Montserrat", sans-serif;
 }
@@ -16,9 +17,13 @@ h3,
 h4,
 h5,
 h6 {
-  color: #cb3b8e;
+  color: #f95480;
 }
 
 li {
   list-style: none;
+}
+
+ul {
+  padding: 0;
 }

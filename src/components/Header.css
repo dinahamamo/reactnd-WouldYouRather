@@ -4,5 +4,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  background-color: #171717;
+}
+
+.header-name {
+  color: #fff;
+  margin: 0;
+}
+
+.ant-dropdown-menu-item:hover > a, .ant-dropdown-menu-submenu-title:hover > a {
+  color: #f95480;
+  transition: color 0.215s ease-in-out;
+}
+
+.ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover {
+  background: none !important;
+}
+
+.avatar:hover {
+  cursor: pointer;
 }

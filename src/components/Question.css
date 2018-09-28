@@ -1,0 +1,74 @@
+/* question card */
+.question {
+  /* border: 1px solid #353234; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #202020;
+}
+
+.left-container,
+.right-container {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-container {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #353234;
+  border-left: 1px solid #353234;
+}
+
+/* middle container */
+.question-author {
+  text-transform: uppercase;
+}
+
+.question-text {
+  color: #8d8d8d;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+}
+
+.question-options {
+  display: flex;
+  width: 85%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.question-options > p {
+  font-size: 1.4rem;
+  margin: 0;;
+  text-align: center;
+  flex-basis: 45%
+}
+
+.question-options > span {
+  font-size: 1rem;
+  color: #353234;
+  text-transform: uppercase;
+  margin: 0 1rem;
+}
+/* right container */
+.date {
+  color: #8d8d8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+.votes {
+  color: #f95480;
+  font-size: 1rem;
+  margin: 0.3rem 0 0 0;
+}

@@ -2,17 +2,17 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 // Actions
-import { handleGetUsers } from '../actions/users'
+import { handleInitialData } from '../actions/shared'
 // Components
 import LoginPage from './LoginPage'
-import HomePage from './HomePage'
+import Questions from './Questions'
 import PrivateRoute from './PrivateRoute'
 import Header from './Header';
 
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleGetUsers())
+    this.props.dispatch(handleInitialData())
   }
 
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
         <Fragment>
           {authedUser !== null && <Header />}
           <Route path="/" exact component={LoginPage} />
-          <PrivateRoute isAuthenticated={authedUser !== null} path="/home" component={HomePage} />
+          <PrivateRoute isAuthenticated={authedUser !== null} path="/questions" component={Questions} />
         </Fragment>
       </Router>
 

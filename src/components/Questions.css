@@ -1,0 +1,36 @@
+.home-page {
+  margin-top: 6rem;
+  overflow: hidden;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.ant-radio-group {
+  width: 95%;
+}
+
+.ant-radio-group-large .ant-radio-button-wrapper {
+  width: 50%;
+  text-align: center;
+  height: 3rem !important;
+  line-height: 3rem !important;
+}
+
+.ant-radio-button-wrapper:hover, .ant-radio-button-wrapper-focused {
+  color: #f95480 !important;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: #f95480 !important;
+  border-color: #f95480 !important;
+  color: #fff !important;
+}
+
+.ant-radio-button-wrapper-checked {
+  box-shadow: -1px 0 0 0 #f95480 !important;
+}

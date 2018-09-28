@@ -24,9 +24,10 @@ class Header extends Component {
     return (
       <div className="header">
         header
+        <h1 className="header-name">Hello, {users[authedUser].name}!</h1>
         <div>
           <Dropdown overlay={menu} placement="bottomCenter">
-            <Avatar src={users[authedUser].avatarURL} />
+            <Avatar size="large" src={users[authedUser].avatarURL} className="avatar"/>
           </Dropdown>
         </div>
       </div>
