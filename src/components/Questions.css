@@ -1,4 +1,4 @@
-.home-page {
+.questions {
   margin-top: 6rem;
   overflow: hidden;
 }
@@ -33,4 +33,13 @@
 
 .ant-radio-button-wrapper-checked {
   box-shadow: -1px 0 0 0 #f95480 !important;
+}
+
+.question-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.question-container > li {
+  margin: 2rem 0;
 }

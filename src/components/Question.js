@@ -1,31 +1,78 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
 import './Question.css'
 import { Avatar } from 'antd';
 import { formatDate, formatTime } from '../utils/helpers'
+import { handleSaveAnswer } from '../actions/questions'
+import AnsweredQuestion from './AnsweredQuestion'
+import UnansweredQuestion from './UnansweredQuestion'
 
-function Question(props) {
-  const { question, users } = props
-  return (
-    <div className="question">
-      <div className="left-container">
-        <Avatar size={150} src={users[question.author].avatarURL}/>
+class Question extends Component {
+  state = {
+    selectedOption: ''
+  }
+
+  _questionsIndex() {
+    const { id, questions } = this.props
+    const question = questions[id]
+    return(
+      <div className="default-question-options">
+        <p>{question["optionOne"]["text"]}</p>
+        <span>Or</span>
+        <p>{question["optionTwo"]["text"]}</p>
       </div>
-      <div className="middle-container">
-        <h2 className="question-author">{users[question.author].name} asks:</h2>
-        <h3 className="question-text">Would you rather</h3>
-        <div className="question-options">
-          <p>{question.optionOne.text}</p>
-          <span>Or</span>
-          <p>{question.optionTwo.text}</p>
+    )
+  }
+
+  handleOptionChange = event => {
+    event.preventDefault();
+    const selectedOption = event.target.value
+    const { dispatch, id } = this.props
+    dispatch(handleSaveAnswer(id, selectedOption))
+    this.setState({
+      selectedOption
+    })
+
+  }
+
+  render() {
+    const { id, users, questions, answered } = this.props
+    const question = questions[id]
+    const location = window.location.pathname
+    const type = location.split("/").slice(-1)[0]
+    return (
+      <div className="question">
+        <div className="left-container">
+          <Avatar size={150} src={users[question.author].avatarURL}/>
+        </div>
+        <div className="middle-container">
+          <h2 className="question-author">{users[question.author].name} asks:</h2>
+          <h3 className="question-text">Would you rather</h3>
+          {type === "questions"
+            ? this._questionsIndex()
+            : type === id
+              ? answered === false
+                ? <UnansweredQuestion handleOptionChange={this.handleOptionChange} question={question} />
+                : <AnsweredQuestion answered={answered} id={id} />
+              : null}
+        </div>
+
+        <div className="right-container">
+          <p className="date">{formatTime(question.timestamp)}</p>
+          <p className="date">{formatDate(question.timestamp)}</p>
+          <p className="votes">{question.optionOne.votes.length + question.optionTwo.votes.length} Votes</p>
         </div>
       </div>
-      <div className="right-container">
-        <p className="date">{formatTime(question.timestamp)}</p>
-        <p className="date">{formatDate(question.timestamp)}</p>
-        <p className="votes">{question.optionOne.votes.length + question.optionTwo.votes.length} Votes</p>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default Question
+function mapStateToProps({ users, questions, authedUser }) {
+  return {
+    users,
+    questions,
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(Question)

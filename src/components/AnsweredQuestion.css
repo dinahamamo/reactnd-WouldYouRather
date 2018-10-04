@@ -1,0 +1,38 @@
+.first-option {
+  border: 1px solid #d9d9d9;
+  border-radius: .4rem 0 0 .4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  padding: 8px 15px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.first-option > p {
+  margin: 0;
+  text-align: center;
+}
+
+.second-option {
+  border: 1px solid;
+  border-radius: 0 .4rem .4rem 0;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  padding: 8px 15px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.second-option > p {
+  margin: 0;
+  text-align: center;
+}
+
+.option-votes {
+  font-size: 0.7rem;
+}

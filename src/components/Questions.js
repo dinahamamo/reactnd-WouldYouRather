@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import './Questions.css'
 import { Radio } from 'antd';
 import Question from './Question'
@@ -18,21 +18,33 @@ class Questions extends Component {
     })
   }
 
+
   render() {
     const { tab } = this.state
-    const { questions, questionsId, unansweredIds, answeredIds, users } = this.props
+    const { unansweredIds, answeredIds } = this.props
     return (
-      <div className="home-page">
+      <div className="questions">
         <div className="tabs">
           <RadioGroup defaultValue={tab} size="large" buttonStyle="solid" onChange={this.handleTabs}>
             <RadioButton value="unanswered">Unanswered</RadioButton>
             <RadioButton value="answered">Answered</RadioButton>
           </RadioGroup>
         </div>
-        <ul>
+        <ul className="question-container">
           {tab === 'unanswered'?
-            unansweredIds.map(id => <li key={id}><Question question={questions[id]} users={users}/></li>)
-            : answeredIds.map(id => <li key={id}><Question question={questions[id]} users={users}/></li>)
+            unansweredIds.map(id =>
+              <li key={id}>
+                <Link to={`/questions/${id}`}>
+                  <Question id={id}/>
+                </Link>
+              </li>)
+            : answeredIds.map(id =>
+              <li key={id}>
+                <Link to={`/questions/${id}`}>
+                  <Question id={id} />
+                </Link>
+              </li>
+            )
           }
         </ul>
       </div>
@@ -40,18 +52,4 @@ class Questions extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions, users}) {
-  const unansweredIds = []
-  const answeredIds = Object.keys(users[authedUser].answers)
-  const questionsId = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
-  questionsId.map(id => answeredIds.includes(id) === false && unansweredIds.push(id))
-  return {
-    questions,
-    questionsId,
-    answeredIds,
-    unansweredIds,
-    users
-  }
-}
-
-export default connect(mapStateToProps)(Questions)
+export default (Questions)
