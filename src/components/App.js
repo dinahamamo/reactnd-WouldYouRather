@@ -9,7 +9,7 @@ import Questions from './Questions'
 import QuestionDetails from './QuestionDetails'
 import PrivateRoute from './PrivateRoute'
 import Header from './Header';
-
+import Question from './Question'
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +32,9 @@ class App extends Component {
           <PrivateRoute isAuthenticated={authedUser !== null}
                         path="/questions/:id"
                         component={(props) => <QuestionDetails {...props} answeredIds={answeredIds} />}/>
+          <PrivateRoute isAuthenticated={authedUser !== null}
+                        path="/add"
+                        component={Question}/>
         </Fragment>
       </Router>
 

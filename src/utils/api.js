@@ -1,7 +1,8 @@
 import {
   _getUsers,
   _getQuestions,
-  _saveQuestionAnswer
+  _saveQuestionAnswer,
+  _saveQuestion
 } from './_DATA'
 
 export function getInitialData() {
@@ -16,4 +17,10 @@ export function getInitialData() {
 
 export function saveQuestionAnswer(info) {
   return _saveQuestionAnswer(info)
+}
+
+export function saveQuestion(question) {
+  return Promise.all([
+    _saveQuestion(question)
+  ]).then(([question]) => (question))
 }

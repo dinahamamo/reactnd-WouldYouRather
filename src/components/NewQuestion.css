@@ -1,0 +1,12 @@
+.input-field {
+  color: #000;
+  width: 50%;
+  border-color: #d9d9d9;
+  text-align: center;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #f95480;
+  transition: 0.5s border ease-in-out;
+}

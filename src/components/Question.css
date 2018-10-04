@@ -1,4 +1,9 @@
 /* question card */
+.new-question {
+  width: 80%;
+  margin: 6rem auto 0 auto;
+}
+
 .question {
   /* border: 1px solid #353234; */
   display: flex;
@@ -92,4 +97,27 @@
   color: #f95480;
   font-size: 1rem;
   margin: 0.3rem 0 0 0;
+}
+
+.submit-button {
+  background-color: #f95480;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  transition: 0.5s background ease-in-out;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.submit-button:focus {
+  outline: none;
+}
+
+.submit-button:disabled {
+  background-color: #393939;
+  cursor: not-allowed;
+  color: #626262;
 }
