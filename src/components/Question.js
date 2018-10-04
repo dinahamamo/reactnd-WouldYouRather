@@ -48,6 +48,11 @@ class Question extends Component {
     event.preventDefault()
     const { firstOption, secondOption } = this.state
     this.props.dispatch(handleSaveQuestion(firstOption, secondOption))
+    this.setState({
+      firstOption: "",
+      secondOption: ""
+    })
+    this.props.history.push("/questions")
   }
 
   render() {
@@ -81,7 +86,11 @@ class Question extends Component {
             <p className="votes">{question.optionOne.votes.length + question.optionTwo.votes.length} Votes</p>
           </div>
         : <div className="right-container">
-            <button className="submit-button" type="submit" disabled={!firstOption || !secondOption} onClick={this.handleSubmitQuestion}>Ask Now!</button>
+            <button className="submit-button"
+                    type="submit" disabled={!firstOption || !secondOption}
+                    onClick={this.handleSubmitQuestion}>
+                      Ask Now!
+            </button>
           </div>
         }
       </div>

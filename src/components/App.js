@@ -10,6 +10,7 @@ import QuestionDetails from './QuestionDetails'
 import PrivateRoute from './PrivateRoute'
 import Header from './Header';
 import Question from './Question'
+import LoadingBar from 'react-redux-loading'
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
+          <LoadingBar style={{backgroundColor: "#f95480", zIndex: "20"}}/>
           {authedUser !== null && <Header />}
           <Route path="/"
                  exact
