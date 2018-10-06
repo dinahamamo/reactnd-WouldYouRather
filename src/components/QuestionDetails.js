@@ -2,7 +2,7 @@ import React from 'react'
 import Question from './Question'
 import './QuestionDetails.css'
 
-function QuestionDetails(props) {
+const QuestionDetails = (props) => {
   const { id } = props.match.params
   const { answeredIds } = props
   return (

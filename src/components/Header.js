@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './Header.css'
 import { withRouter } from 'react-router-dom'
-
-import { Menu, Dropdown, Icon , Avatar} from 'antd';
+import { Menu, Dropdown, Avatar} from 'antd';
 import { setAuthedUser } from '../actions/authedUser';
 
 

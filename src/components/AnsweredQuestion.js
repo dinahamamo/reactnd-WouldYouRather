@@ -8,8 +8,7 @@ class AnsweredQuestion extends Component {
     const { answered, users, authedUser, id, questions } = this.props
     const question = questions[id]
 
-    let option = ""
-    answered ? option = users[authedUser].answers[id] : null
+    let option = answered ? users[authedUser].answers[id] : null
 
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
     let firstOptionPercentage = question.optionOne.votes.length / totalVotes * 100
