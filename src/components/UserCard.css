@@ -1,0 +1,29 @@
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #202020;
+}
+
+.card-top-conatiner {
+  margin-bottom: 2rem;
+}
+
+.card-bottom-container {
+  margin-top: 2rem;
+}
+
+.user-numbers {
+  color: #8d8d8d;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.user-score {
+  font-size: 1.6rem;
+}

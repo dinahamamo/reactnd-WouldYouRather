@@ -1,0 +1,13 @@
+.leaderboard {
+  margin: 6rem auto;
+  width: 85%;
+}
+
+.users-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-card-container {
+  width: 30%;
+}

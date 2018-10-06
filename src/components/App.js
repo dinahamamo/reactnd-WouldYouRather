@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute'
 import Header from './Header';
 import Question from './Question'
 import LoadingBar from 'react-redux-loading'
+import LeaderboardPage from './LeaderboardPage'
 
 class App extends Component {
   componentDidMount() {
@@ -37,6 +38,9 @@ class App extends Component {
           <PrivateRoute isAuthenticated={authedUser !== null}
                         path="/add"
                         component={Question}/>
+          <PrivateRoute isAuthenticated={authedUser !== null}
+                        path="/leaderboard"
+                        component={LeaderboardPage}/>
         </Fragment>
       </Router>
 
@@ -50,6 +54,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     const answeredIds = Object.keys(users[authedUser].answers)
     const questionsId = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     questionsId.map(id => answeredIds.includes(id) === false && unansweredIds.push(id))
+    answeredIds.sort((a, b) => questions[b].timestamp - questions[a].timestamp)
     return {
       authedUser,
       answeredIds,
