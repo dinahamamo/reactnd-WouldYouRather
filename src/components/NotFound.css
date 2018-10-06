@@ -1,0 +1,34 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.not-found > h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.not-found > h2 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.not-found > a {
+  padding: 1rem 3rem;
+  border-radius: 5rem;
+  margin-top: 2rem;
+  border: 2px solid #f95480;
+  font-size: 1rem;
+  color: #fff;
+  background: #f95480;
+}
+
+.not-found > a:hover {
+  color: #f95480;
+  background: #fff;
+  border-color: #fff;
+}

@@ -13,6 +13,7 @@ import Question from './Question'
 import LoadingBar from 'react-redux-loading'
 import LeaderboardPage from './LeaderboardPage'
 import Navbar from './Navbar'
+import NotFound from './NotFound'
 
 class App extends Component {
   componentDidMount() {
@@ -47,6 +48,7 @@ class App extends Component {
           <PrivateRoute isAuthenticated={authedUser !== null}
                         path="/leaderboard"
                         component={LeaderboardPage}/>
+          <Route component={NotFound}/>
         </Fragment>
       </Router>
 
