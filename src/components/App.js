@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Actions
 import { handleInitialData } from '../actions/shared'
 // Components
@@ -32,23 +32,25 @@ class App extends Component {
                 <Navbar />
               </div>
           }
-          <Route path="/"
-                 exact
-                 component={LoginPage} />
-          <PrivateRoute isAuthenticated={authedUser !== null}
-                        exact
-                        path="/questions"
-                        component={(props) => <Questions {...props} answeredIds={answeredIds} unansweredIds={unansweredIds} />} />
-          <PrivateRoute isAuthenticated={authedUser !== null}
-                        path="/questions/:id"
-                        component={(props) => <QuestionDetails {...props} answeredIds={answeredIds} />}/>
-          <PrivateRoute isAuthenticated={authedUser !== null}
-                        path="/add"
-                        component={Question}/>
-          <PrivateRoute isAuthenticated={authedUser !== null}
-                        path="/leaderboard"
-                        component={LeaderboardPage}/>
-          <Route component={NotFound}/>
+          <Switch>
+            <Route path="/"
+                  exact
+                  component={LoginPage} />
+            <PrivateRoute isAuthenticated={authedUser !== null}
+                          exact
+                          path="/questions"
+                          component={(props) => <Questions {...props} answeredIds={answeredIds} unansweredIds={unansweredIds} />} />
+            <PrivateRoute isAuthenticated={authedUser !== null}
+                          path="/questions/:id"
+                          component={(props) => <QuestionDetails {...props} answeredIds={answeredIds} unansweredIds={unansweredIds}/>}/>
+            <PrivateRoute isAuthenticated={authedUser !== null}
+                          path="/add"
+                          component={Question}/>
+            <PrivateRoute isAuthenticated={authedUser !== null}
+                          path="/leaderboard"
+                          component={LeaderboardPage}/>
+            <Route component={NotFound}/>
+          </Switch>
         </Fragment>
       </Router>
 
