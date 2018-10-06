@@ -1,6 +1,7 @@
 .leaderboard {
-  margin: 6rem auto;
-  width: 85%;
+  margin-top: 6rem;
+  margin-left: 20%;
+  width: 75%;
 }
 
 .users-list {

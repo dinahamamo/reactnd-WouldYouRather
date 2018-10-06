@@ -1,5 +1,7 @@
 .questions {
   margin-top: 6rem;
+  width: 75%;
+  margin-left: 20%;
   overflow: hidden;
 }
 
@@ -11,7 +13,7 @@
 }
 
 .ant-radio-group {
-  width: 95%;
+  width: 100%;
 }
 
 .ant-radio-group-large .ant-radio-button-wrapper {
@@ -33,11 +35,6 @@
 
 .ant-radio-button-wrapper-checked {
   box-shadow: -1px 0 0 0 #f95480 !important;
-}
-
-.question-container {
-  width: 80%;
-  margin: 0 auto;
 }
 
 .question-container > li {

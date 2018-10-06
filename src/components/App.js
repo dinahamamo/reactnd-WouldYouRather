@@ -12,6 +12,7 @@ import Header from './Header';
 import Question from './Question'
 import LoadingBar from 'react-redux-loading'
 import LeaderboardPage from './LeaderboardPage'
+import Navbar from './Navbar'
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +25,12 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar style={{backgroundColor: "#f95480", zIndex: "20"}}/>
-          {authedUser !== null && <Header />}
+          {authedUser !== null
+            && <div>
+                <Header />
+                <Navbar />
+              </div>
+          }
           <Route path="/"
                  exact
                  component={LoginPage} />

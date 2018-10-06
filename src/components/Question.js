@@ -62,7 +62,7 @@ class Question extends Component {
     const location = window.location.pathname
     const type = location.split("/").slice(-1)[0]
     return (
-      <div className={`question ${type === "add" ? "new-question" : null}`}>
+      <div className={`question ${type === "add"? "new-question" : null}`}>
         <div className="left-container">
           <Avatar size={150} src={question ? users[question.author].avatarURL : users[authedUser].avatarURL}/>
         </div>
